@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #0d0d1a;
+  --bg-card: #16213e;
+  --bg-card2: #1a1a3e;
+  --roblox-red: #ff3333;
+  --roblox-blue: #00a2ff;
+  --roblox-green: #00c851;
+  --roblox-gold: #ffd700;
+  --roblox-purple: #9b59b6;
+  --roblox-orange: #ff8c00;
+  --border-color: #2a2a5a;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0c0;
+  --pixel-font: 'Press Start 2P', monospace;
+  --body-font: 'Noto Sans KR', sans-serif;
+}
+
+html, body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--body-font);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+/* Pixel button base */
+.pixel-btn {
+  font-family: var(--pixel-font);
+  font-size: 10px;
+  border: 3px solid rgba(0,0,0,0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.4);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pixel-btn:active {
+  top: 3px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+.pixel-btn:hover {
+  filter: brightness(1.15);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px currentColor; }
+  50% { box-shadow: 0 0 30px currentColor, 0 0 60px currentColor; }
+}
+
+@keyframes star-move {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-8px); }
+  80% { transform: translateX(8px); }
+}
+
+@keyframes correct-flash {
+  0% { background: rgba(0,200,81,0.3); }
+  100% { background: transparent; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes xp-gain {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-60px) scale(1.5); opacity: 0; }
+}
+
+/* ── Layout ── */
+.screen-layout {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.screen-layout-center {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* ── Cards ── */
+.card-dark {
+  background: linear-gradient(135deg, #16213e, #0f3460);
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.card-panel {
+  background: rgba(22,33,62,0.8);
+  border: 2px solid #1a1a3e;
+  border-radius: 12px;
+}
+
+/* ── Buttons ── */
+.pixel-btn-back {
+  padding: 10px 16px;
+  background: linear-gradient(180deg, #444, #222);
+  color: #fff;
+  font-size: 10px;
+  font-family: var(--pixel-font);
+  border: 3px solid #111;
+  flex-shrink: 0;
+}
+
+/* ── Bar tracks ── */
+.bar-track {
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-track-xp {
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ── Activity list ── */
+.activity-list {
+  background: rgba(22,33,62,0.8);
+  border: 2px solid #1a1a3e;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ── Section label ── */
+.section-label {
+  font-family: var(--pixel-font);
+  font-size: 10px;
+  color: var(--roblox-gold);
+  margin-bottom: 12px;
+}
